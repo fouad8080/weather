@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="Container">
+    <input type="text" id="cityInput" placeholder="Enter city name">
+    <button type="submit" id="getWeather" onclick="getweatherdata()">Get Weather</button>
+    </div>
     <form id="weatherForm">
-        <input type="text" id="cityInput" placeholder="Enter city name">
-        <button type="submit" id="getWeather">Get Weather</button>
-        <div id="weatherResult">
-            <h1 id="cityName">miami</h1>
-            <p id="temperature">90 °F</p>
-            <p id="description">Sunny</p>
-            <p id="humidity">70%</p>
-            <p id="windSpeed">10 mph</p>
-            <p id="weatherEmoji">☀️</p>
+            <h1 id="cityName"></h1>
+            <p id="temperature"></p>
+            <p id="description"></p>
+            <p id="humidity"></p>
+            <p id="windSpeed"></p>
+            <p id="weatherEmoji"></p>
             <p id="errorMessage" style="color: red;"></p>
-        </div>
     </form>
    
     

@@ -6,4 +6,73 @@ const humidity=document.getElementById("humidity");
 const weatherEmoji=document.getElementById("weatherEmoji");
 const windSpeed=document.getElementById("windSpeed");
 const errorMessage=document.getElementById("errorMessage");
+const weatherForm=document.getElementById("weatherForm")
+const api_key="e2acc5d75a05c66c6b2d5b51976097db";
 
+
+async function getweatherdata(){
+    weatherForm.style.visibility="visible";
+    errorMessage.textContent="";
+    const city= cityinput.value;
+    if (city!==""){
+        try{
+            const data = await getweather(city);
+            dispalyinfo(data);
+        }
+        catch(error){
+            displayerror("error fetching weather data")
+        }
+    }
+    else{
+        displayerror("please enter  a city")
+    }
+}
+
+
+async function getweather(city) {
+    try{
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}&units=imperial`);
+        if (!response.ok){
+            throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        console.log(data);
+        return data;
+    }
+    catch(error){
+        throw error;
+    }
+}
+
+function dispalyinfo(data){
+    cityName.textContent=data.name;
+    temperature.textContent = `Temperature: ${data.main.temp} °F`;
+    description.textContent = `Description: ${data.weather[0].description}`;
+    humidity.textContent = `Humidity: ${data.main.humidity}%`;
+    windSpeed.textContent = `Wind Speed: ${data.wind.speed} mph`;
+    displayimoji(data.weather[0].id);
+
+}
+function displayimoji(weatherId){
+    if (weatherId >= 200 && weatherId < 300) {
+        weatherEmoji.textContent = "⛈️";
+    } else if (weatherId >= 300 && weatherId < 500) {
+        weatherEmoji.textContent = "🌧️";
+    } else if (weatherId >= 500 && weatherId < 600) {
+        weatherEmoji.textContent = "🌦️";
+    } else if (weatherId >= 600 && weatherId < 700) {
+        weatherEmoji.textContent = "❄️";
+    } else if (weatherId >= 700 && weatherId < 800) {
+        weatherEmoji.textContent = "🌫️";
+    } else if (weatherId === 800) {
+        weatherEmoji.textContent = "☀️";
+    } else if (weatherId > 800 && weatherId < 900) {
+        weatherEmoji.textContent = "☁️";
+    } else {
+        weatherEmoji.textContent = "";
+    }   
+}
+function displayerror(message){
+    errorMessage.textContent=message;
+    weatherForm.style.height="87dvh";
+}

@@ -4,6 +4,8 @@ body{
     align-items: center;
 }
 #weatherForm {
+    background:linear-gradient(134deg,rgb(48, 194, 243),green) ;
+    visibility: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,18 +13,10 @@ body{
     border: 2px solid black;
     border-radius: 30px;
     width: 60dvw;
-    height: 87dvh;
+    height: 80dvh;
 }
-#weatherResult{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    
-    height: 70dvh;
-    justify-content: space-between;
-}
-#weatherResult p{
+
+#weatherForm p{
     font-size: 30px;
 }
 #cityInput{
@@ -41,4 +35,5 @@ body{
     border-radius: 20px;
     padding: 8px;
     background-color: rgb(85, 255, 255);
+    cursor: pointer;
 }
