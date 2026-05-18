@@ -46,7 +46,7 @@ async function getweather(city) {
 
 function dispalyinfo(data){
     cityName.textContent=data.name;
-    temperature.textContent = `Temperature: ${data.main.temp} °F`;
+    temperature.textContent = `Temperature: ${((data.main.temp-32)*(5/9)).toFixed(1) } °C`;
     description.textContent = `Description: ${data.weather[0].description}`;
     humidity.textContent = `Humidity: ${data.main.humidity}%`;
     windSpeed.textContent = `Wind Speed: ${data.wind.speed} mph`;
