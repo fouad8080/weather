@@ -8,6 +8,16 @@ body{
     background-repeat: no-repeat;
     height: 100dvh;
 }
+#Container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    flex-grow: 0;
+}
 #weatherForm {
     background:linear-gradient(134deg,rgba(48, 194, 243, 0.5),rgba(0, 128, 0, 0.527)) ;
     visibility: hidden;
@@ -19,6 +29,10 @@ body{
     border-radius: 30px;
     width: 60dvw;
     height: 80dvh;
+    max-width: 500px;
+    
+    box-sizing: border-box;
+
 }
 
 #weatherForm p{
@@ -33,13 +47,25 @@ body{
     text-align: center;
     font-size: 20px;
     background-color: rgba(240, 248, 255, 0.527);
+    max-width: 350px;
 }
 #getWeather{
-    margin-top: 7px;
+    margin-top: 13px;
     font-size: 20px;
     border: 1px solid black;
     border-radius: 20px;
-    padding: 8px;
+    padding: 5px;
     background-color: rgba(85, 255, 255, 0.493);
     cursor: pointer;
+}
+@media (max-width: 720px) {
+    #weatherForm p, #getWeather {
+        font-size: 3dvh;
+    }
+    #cityInput {
+        width: 80%;
+    }
+    #weatherForm {
+        height: 70%;
+    }
 }

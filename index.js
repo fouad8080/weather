@@ -10,9 +10,12 @@ const weatherForm=document.getElementById("weatherForm")
 const api_key="e2acc5d75a05c66c6b2d5b51976097db";
 
 
+
+
 async function getweatherdata(){
     weatherForm.style.visibility="visible";
     errorMessage.textContent="";
+    errorMessage.style.visibility="hidden";
     const city= cityinput.value;
     if (city!==""){
         try{
@@ -56,23 +59,31 @@ function dispalyinfo(data){
 function displayimoji(weatherId){
     if (weatherId >= 200 && weatherId < 300) {
         weatherEmoji.textContent = "⛈️";
+        document.body.style.backgroundImage = "url(images/lighty.jpg)";
     } else if (weatherId >= 300 && weatherId < 500) {
         weatherEmoji.textContent = "🌧️";
+        document.body.style.backgroundImage = "url(images/rainsky.webp)";
     } else if (weatherId >= 500 && weatherId < 600) {
         weatherEmoji.textContent = "🌦️";
+        document.body.style.backgroundImage = "url(images/few clouds.jpg)";
     } else if (weatherId >= 600 && weatherId < 700) {
         weatherEmoji.textContent = "❄️";
+        document.body.style.backgroundImage = "url(images/snowy.jpg)";
     } else if (weatherId >= 700 && weatherId < 800) {
         weatherEmoji.textContent = "🌫️";
+        document.body.style.backgroundImage = "url(images/windy.jpg)";
     } else if (weatherId === 800) {
         weatherEmoji.textContent = "☀️";
+        document.body.style.backgroundImage = "url(images/suny.jpg)";
     } else if (weatherId > 800 && weatherId < 900) {
         weatherEmoji.textContent = "☁️";
+        document.body.style.backgroundImage = "url(images/cloudy.jpg)";
     } else {
         weatherEmoji.textContent = "";
     }   
 }
 function displayerror(message){
     errorMessage.textContent=message;
+    errorMessage.style.visibility="visible";
     weatherForm.style.height="87dvh";
 }
