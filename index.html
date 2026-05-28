@@ -11,7 +11,19 @@
     <input type="text" id="cityInput" placeholder="Enter city name">
     <button type="submit" id="getWeather" onclick="getweatherdata()">Get Weather</button>
     </div>
-    <form id="weatherForm">
+    <div id="days">
+        <button class="day" id="day1" onclick="getweatherdata()">Today</button>
+        <button class="day" id="day2" onclick="getweatherdata(1)">Tomorrow</button>
+        <button class="day" id="day3" onclick="getweatherdata(2)">2</button>
+        <button class="day" id="day4" onclick="getweatherdata(3)">3</button>
+        <button class="day" id="day5" onclick="getweatherdata(4)">4</button>
+    </div>
+   
+
+       <form id="weatherForm">
+        <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
             <h1 id="cityName"></h1>
             <p id="temperature"></p>
             <p id="description"></p>
